@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  race: 1
+  characterClass: 1
+  backstory: 1
+
+two:
+  race: 1
+  characterClass: 1
+  backstory: 1
