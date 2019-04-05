@@ -8,6 +8,16 @@ class CharactersController < ApplicationController
         @character = Character.find(params[:id])
     end
     
+    def create
+        @character = Character.new(character_params)
+        
+        if @character.save
+            redirect_to @character
+        else
+            render 'new'
+        end
+    end
+    
 end
 
 private
