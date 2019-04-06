@@ -1,0 +1,42 @@
+<h1>Character Creation</h1>
+    <%= form_for(@character) do |f| %>
+    
+        <%= f.label :name %>
+        <br>
+        <%= f.text_field :name %>
+    
+        <br><br>
+    
+        <%= f.label :race %>
+        <br>
+        <% Character.races.each_key do |race| %>
+            <%= f.radio_button :race, race %>
+            <%= f.label race.to_sym %>
+        <% end %>
+        
+        <br><br>
+        
+        <%= f.label :characterClass %>
+        <br>
+        <% Character.characterClasses.each_key do |c| %>
+            <%= f.radio_button :characterClass, c %>
+            <%= f.label c.to_sym %>
+        <% end %>
+        
+        <br><br>
+        
+        <%= f.label :backstory %>
+        <br>
+        <% Character.backstories.each_key do |b| %>
+            <%= f.radio_button :backstory, b %>
+            <%= f.label b.to_sym %>
+        <% end %>
+        
+        <br><br>
+        
+        <%= f.submit %>
+    
+    <% end %>
+
+<!-- This site details the fields_for method -->
+<!-- https://guides.rubyonrails.org/form_helpers.html#understanding-parameter-naming-conventions -->
