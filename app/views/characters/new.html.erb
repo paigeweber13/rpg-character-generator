@@ -1,4 +1,17 @@
 <h1>Character Creation</h1>
+    <% if @character.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@character.errors.count, "error") %> prohibited
+                this article from being saved:      
+            </h2>
+            <ul>
+                <% @character.errors.full_messages.each do |msg| %>           
+                <li><%= msg %></li>         
+                <% end %>       
+            </ul>     
+        </div>   
+    <% end %>    
     <%= form_for(@character) do |f| %>
     
         <%= f.label :name %>
