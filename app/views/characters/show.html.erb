@@ -17,3 +17,24 @@
     <strong>Backstory:</strong>
     <%= @character.backstory %>
 </p>
+
+<br><br>
+
+<!-- Temporary for testing purposes -->
+<strong>Character:</strong>
+<p>
+    <% @character.attributes.each do |name, val| %>
+        <%= name %>: <%= val %>
+        <br>
+    <% end %>
+</p>
+
+<br><br>
+
+<strong>Stats:</strong>
+<p>
+    <% @character.stat.attributes.each do |name, val| %>
+        <%= name %>: <%= val %>
+        <br>
+    <% end %>
+</p>
