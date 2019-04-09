@@ -1,9 +1,11 @@
 class CharactersController < ApplicationController
     def index
+        Character.all
     end
     
     def new
         @character = Character.new
+        @character.build_stat
     end
     
     def show 
@@ -20,10 +22,10 @@ class CharactersController < ApplicationController
         end
     end
     
-    private
-        def character_params
-            params.require(:character).permit(:name, :race, :characterClass, :backstory)
-        end
-    
-    
 end
+
+private
+    def character_params
+        params.require(:character).permit(:name, :race, :characterClass, :backstory,
+        stat_attributes: [:vitality, :strength, :dexterity, :endurance, :intelligence, :luck])
+    end
