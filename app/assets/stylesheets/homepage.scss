@@ -1,0 +1,58 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Test1, .Test2 {
+    box-shadow: 2px 3px 10px 0px rgba(32,15,14,0.61);
+    opacity: 0.5;
+}
+
+.Test_Button {
+    float: right;
+    border-radius: 12px;
+}
+
+img:hover {
+    //-webkit-box-shadow: 2px 3px 10px 0px rgba(32,15,14,0.61); 
+    box-shadow: 2px 3px 10px 0px rgba(32,15,14,0.61);
+    opacity: 1;
+}
+.section {
+    background-color: #5f5151;
+    padding: 10px;
+}
+
+.section#intro {
+    margin-top: 40px;
+}
+
+.container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+    //background-color: green;
+    //border: 3px solid #FF2AB1;
+}
+
+.col-md-5, .col-md-6, .col-sm-5, .col-sm-7 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+body {
+    background: #8a6969;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 75px;
+    
+}
+
+p {
+    font-size: 18px;
+    color: #140D09;
+}

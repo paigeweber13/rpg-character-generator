@@ -1,0 +1,49 @@
+<h1> Welcome to our webpage </h1>
+<section class="section" id="intro">
+    <div class="container" style="margin-bottom: 10px">
+        <div class="row">
+            <div class="col-md-6 col-sm-5 item">
+                <%= image_tag("dark_souls.jpg", :class => "Test1") %>
+            </div>
+            <div class="item col-md-5 col-md-offset-1 col-sm-7 welcome_text">
+                <div class="mt-80 welcome_text_area">
+                    <p class="mb-40">
+                        Hello this is a test.
+                        <strong>Character Selection</strong>
+                        text/description area.
+                        
+                        Blah Blah Blah. Text area for stuff
+                        
+                        lsakdjflkas jdflkasjdflkjas ldkjfalk sdjflaksjdflkajs d;lfjalsd
+                        asdlkfjasldkfjal ksdjflkads jflkasdjfkajsdflk jasldkjflaksjdf
+                        <!--<a href="#select-char">Character Select</a>-->
+                    </p>
+                    <div class="start" style="border-radius: 2px">
+                        <a href="characters/new"><%= image_tag("start.png", :class => "Test_Button") %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="another section" id="monster section">
+    <div class="container" style="magin-top: 50px">
+        <div class="row relative">
+            <div class="item col-md-5 col-sm-5 monster_text">
+                <div class="mt-80 monster_text_area">
+                    <p class="mb-40">
+                        Hello test continued.
+                        <strong>Monster Selection</strong>
+                        text/description area.
+                        <a href="select-char">Monster Select</a>
+                    </p>
+                </div>
+            </div>
+            <div class="item col-md-6 col-md-offset-1 col-sm-7 monster_pic">
+                <a href="select-monster"><%= image_tag("monster_image.jpg", :class => "Test2") %></a>
+            </div>
+        </div>
+    </div>
+</section>
+
