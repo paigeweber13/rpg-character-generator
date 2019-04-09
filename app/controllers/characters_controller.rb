@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
     def index
-        Character.all
+        @characters = Character.all
     end
     
     def new
