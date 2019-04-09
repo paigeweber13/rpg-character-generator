@@ -26,6 +26,8 @@ end
 
 private
     def character_params
-        params.require(:character).permit(:name, :race, :characterClass, :backstory,
-        stat_attributes: [:vitality, :strength, :dexterity, :endurance, :intelligence, :luck])
+        params.require(:character)
+              .permit(:name, :race, :characterClass, :backstory,
+                       stat_attributes: [:vitality, :strength, :dexterity,
+                                         :endurance, :intelligence, :luck])
     end
