@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6' #navbar + responsive grid system
 gem 'jquery-rails'
 
+# Multi-step Form 
+gem 'wicked'
+
 
 
 # Use ActiveStorage variant
