@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
     def index
-        Character.all
+        @characters = Character.all
     end
     
     def new
@@ -16,7 +16,8 @@ class CharactersController < ApplicationController
         @character = Character.new(character_params)
         
         if @character.save
-            redirect_to @character
+            session[:character_id] = @character.id
+            redirect_to steps_path
         else
             render '/characters/new'
         end
