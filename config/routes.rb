@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :stats
   end
   
+  resources :steps
+  
   root 'welcome#index'
 end
