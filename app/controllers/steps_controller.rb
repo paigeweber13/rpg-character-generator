@@ -9,8 +9,9 @@ class StepsController < ApplicationController
     
     def update
         @character = current_character
-        @character.update_attributes(params[:character].permit(:role_ids))
+        @character.update_attributes(params[:character].permit(:race, :characterClass, :backstory))
         render_wizard @character
     end
 
 end
+
