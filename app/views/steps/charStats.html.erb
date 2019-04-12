@@ -1,0 +1,28 @@
+<%= form_for @character do |f| %>
+    <!-- TODO: Way to loop through Stat model attributes? -->
+    <%= f.fields_for(:stat) do |stat_f| %>
+        <p>
+            <%= stat_f.label :vitality %>: 
+            <%= stat_f.number_field :vitality %>
+            <br>
+            <%= stat_f.label :strength %>: 
+            <%= stat_f.number_field :strength %>
+            <br>
+            <%= stat_f.label :dexterity %>: 
+            <%= stat_f.number_field :dexterity %>
+            <br>
+            <%= stat_f.label :endurance %>: 
+            <%= stat_f.number_field :endurance %>
+            <br>
+            <%= stat_f.label :intelligence %>: 
+            <%= stat_f.number_field :intelligence %>
+            <br>
+            <%= stat_f.label :luck %>: 
+            <%= stat_f.number_field :luck %>
+            <br>
+        </p>
+    <% end %>
+    
+    <%= f.submit "Finish Character Creation" %>
+<% end %>
+
