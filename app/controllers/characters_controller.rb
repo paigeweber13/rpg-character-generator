@@ -36,7 +36,7 @@ class CharactersController < ApplicationController
         @character = Character.find(params[:id])
         @character.destroy
         
-        redirect_to character_path
+        redirect_to characters_path
     end
 
 end
