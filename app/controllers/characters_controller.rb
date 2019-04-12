@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
         if @character.update(character_params)
             redirect_to @character
         else
-            render '/characters/edit'
+            render 'edit'
         end
     end
     
