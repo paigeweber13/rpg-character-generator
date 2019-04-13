@@ -13,6 +13,10 @@ class StepsController < ApplicationController
             stat_attributes: [:vitality, :strength, :dexterity, :endurance, :intelligence, :luck]))
         render_wizard @character
     end
-
+    
+private
+    def redirect_to_finish_wizard 
+        redirect_to root_url
+    end
 end
 
