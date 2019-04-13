@@ -1,9 +1,16 @@
 <h1>Listing Characters</h1>
 
 <% @characters.each do |c| %>
-  <strong>Name: </strong><%= c.name %><br>
-  <strong>Race: </strong><%= c.race %><br>
-  <strong>Class: </strong><%= c.characterClass %><br>
-  <strong>Backstory: </strong><%= c.backstory %><br>
+  <strong>Name: </strong><%= c.name %>
+  <strong>Race: </strong><%= c.race %>
+  <strong>Class: </strong><%= c.characterClass %>
+  <strong>Backstory: </strong><%= c.backstory %>
+  <%= link_to 'Show', character_path(c) %>
+  <%= link_to 'Edit', edit_character_path(c) %>
+  <%= link_to 'Destroy',
+          character_path(c),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+  <br>
   
 <% end %>
