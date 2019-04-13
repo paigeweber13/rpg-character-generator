@@ -14,6 +14,7 @@ class CharactersController < ApplicationController
     
     def create 
         @character = Character.new(character_params)
+        @character.build_stat
         
         if @character.save
             session[:character_id] = @character.id
@@ -30,8 +31,11 @@ class CharactersController < ApplicationController
     def update
         @character = Character.find(params[:id])
         
-        if @character.update(character_params)
-            redirect_to @character
+        # Need this to update ONLY the name
+        # E.g. if @character.update(:name hash)
+        # Otherwise the final step will loop back to race when you submit Stats
+        if @character.save
+            redirect_to steps_path
         else
             render 'edit'
         end
