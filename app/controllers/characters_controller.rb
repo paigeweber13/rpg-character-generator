@@ -18,9 +18,14 @@ class CharactersController < ApplicationController
         if @character.save
             redirect_to @character
         else
-            render '/characters/new'
+            render 'new'
         end
     end
+    
+    def edit
+        @character = Character.find(params[:id])
+    end
+        
     
     def update
         @character = Character.find(params[:id])
@@ -45,6 +50,6 @@ private
     def character_params
         params.require(:character)
               .permit(:name, :race, :characterClass, :backstory,
-                       stat_attributes: [:vitality, :strength, :dexterity,
+                       stat_attributes: [:id, :vitality, :strength, :dexterity,
                                          :endurance, :intelligence, :luck])
     end
