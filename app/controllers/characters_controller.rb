@@ -5,7 +5,6 @@ class CharactersController < ApplicationController
     
     def new
         @character = Character.new
-        @character.build_stat
     end
     
     def show 
@@ -31,13 +30,8 @@ class CharactersController < ApplicationController
     def update
         @character = Character.find(params[:id])
         
-        # Need this to update ONLY the name
-        # E.g. if @character.update(:name hash)
-        # Otherwise the final step will loop back to race when you submit Stats
-        if @character.save
-            redirect_to steps_path
-        else
-            render 'edit'
+        if @character.update(character_params)
+            redirect_to characters_path
         end
     end
     
@@ -55,5 +49,4 @@ private
         params.require(:character).permit(:name, :race, :characterClass, :backstory,
         stat_attributes: [:vitality, :strength, :dexterity, :endurance, :intelligence, :luck])
     end
-    
-    
+ 
