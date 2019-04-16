@@ -1,9 +1,11 @@
 class CharactersController < ApplicationController
     def index
+        @characters = Character.all
     end
     
     def new
         @character = Character.new
+        @character.build_stat
     end
     
     def show 
@@ -16,14 +18,38 @@ class CharactersController < ApplicationController
         if @character.save
             redirect_to @character
         else
-            render '/characters/new'
+            render 'new'
         end
     end
     
-    private
-        def character_params
-            params.require(:character).permit(:name, :race, :characterClass, :backstory)
+    def edit
+        @character = Character.find(params[:id])
+    end
+        
+    
+    def update
+        @character = Character.find(params[:id])
+        
+        if @character.update(character_params)
+            redirect_to @character
+        else
+            render 'edit'
         end
+    end
     
-    
+    def destroy
+        @character = Character.find(params[:id])
+        @character.destroy
+        
+        redirect_to characters_path
+    end
+
 end
+
+private
+    def character_params
+        params.require(:character)
+              .permit(:name, :race, :characterClass, :backstory,
+                       stat_attributes: [:id, :vitality, :strength, :dexterity,
+                                         :endurance, :intelligence, :luck])
+    end
