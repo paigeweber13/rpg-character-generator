@@ -43,6 +43,13 @@ class CharactersController < ApplicationController
         
         redirect_to characters_path
     end
+    
+    def random
+        Character.create(:name => "test",
+                        :race => rand(Character.races.length),
+                        :characterClass => rand(Character.characterClasses.length),
+                        :backstory => rand(Character.backstories.length))
+    end
 
 end
 
