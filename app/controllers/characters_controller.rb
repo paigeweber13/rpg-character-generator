@@ -31,7 +31,9 @@ class CharactersController < ApplicationController
         @character = Character.find(params[:id])
         
         if @character.update(character_params)
-            redirect_to characters_path
+            redirect_to character_path(@character)
+        else
+            render 'edit'
         end
     end
     
@@ -49,4 +51,6 @@ private
         params.require(:character).permit(:name, :race, :characterClass, :backstory,
         stat_attributes: [:vitality, :strength, :dexterity, :endurance, :intelligence, :luck])
     end
- 
+
+    
+    
