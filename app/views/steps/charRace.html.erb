@@ -1,8 +1,11 @@
 <h1>Choose your race</h1>
 
 <%= render layout: 'form' do |f| %>
-  <div class="field">
-    <%= f.label :race %><br />
-    <%= f.text_field :race %>
+  <div>
+    <% Character.races.each_key do |race| %>
+        <%= f.radio_button :race, race %>
+        <%= f.label race.to_sym %>
+    <% end %>
   </div>
+  
 <% end %>
