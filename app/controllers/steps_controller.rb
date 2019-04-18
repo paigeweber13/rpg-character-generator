@@ -9,6 +9,8 @@ class StepsController < ApplicationController
     
     def update
         @character = current_character
+        params[:character][:status] = step.to_s
+        params[:character][:status] = 'active' if step == steps.last
         @character.update_attributes(params[:character].permit(:name, :race, :characterClass, :backstory,
             stat_attributes: [:vitality, :strength, :dexterity, :endurance, :intelligence, :luck]))
         render_wizard @character
