@@ -25,7 +25,6 @@ class CharactersController < ApplicationController
     def edit
         @character = Character.find(params[:id])
     end
-        
     
     def update
         @character = Character.find(params[:id])
@@ -45,10 +44,12 @@ class CharactersController < ApplicationController
     end
     
     def random
-        Character.create(:name => "test",
-                        :race => rand(Character.races.length),
-                        :characterClass => rand(Character.characterClasses.length),
-                        :backstory => rand(Character.backstories.length))
+        @character = Character.create(:name => "test",
+                                      :race => rand(Character.races.length),
+                                      :characterClass => rand(Character.characterClasses.length),
+                                      :backstory => rand(Character.backstories.length))
+                                      # TODO: add stats
+        redirect_to @character
     end
 
 end
