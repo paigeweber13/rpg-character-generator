@@ -14,4 +14,5 @@ feature 'User edits a character' do
         click_link('Edit')
         expect(page).to have_content('Edit Character')
     end
+    
 end
