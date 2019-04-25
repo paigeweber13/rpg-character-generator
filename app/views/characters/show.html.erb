@@ -38,3 +38,11 @@
         <br>
     <% end %>
 </p>
+
+<h2>Comments</h2>
+<%= render @character.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Character List', characters_path %>
