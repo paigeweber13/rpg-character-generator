@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_04_25_132453) do
     t.integer "backstory"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   create_table "comments", force: :cascade do |t|
