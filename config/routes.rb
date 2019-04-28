@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  resources :steps
+  
   root 'welcome#index'
 end

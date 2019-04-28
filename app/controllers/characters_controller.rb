@@ -5,7 +5,6 @@ class CharactersController < ApplicationController
     
     def new
         @character = Character.new
-        @character.build_stat
     end
     
     def show 
@@ -14,9 +13,11 @@ class CharactersController < ApplicationController
     
     def create 
         @character = Character.new(character_params)
+        @character.build_stat
         
         if @character.save
-            redirect_to @character
+            session[:character_id] = @character.id
+            redirect_to steps_path
         else
             render 'new'
         end
@@ -25,13 +26,14 @@ class CharactersController < ApplicationController
     def edit
         @character = Character.find(params[:id])
     end
-        
     
     def update
         @character = Character.find(params[:id])
         
         if @character.update(character_params)
-            redirect_to @character
+
+            redirect_to character_path(@character)
+
         else
             render 'edit'
         end
@@ -43,13 +45,12 @@ class CharactersController < ApplicationController
         
         redirect_to characters_path
     end
-
 end
 
 private
     def character_params
-        params.require(:character)
-              .permit(:name, :race, :characterClass, :backstory,
-                       stat_attributes: [:id, :vitality, :strength, :dexterity,
-                                         :endurance, :intelligence, :luck])
+
+        params.require(:character).permit(:name, :race, :characterClass, :backstory,
+        stat_attributes: [:vitality, :strength, :dexterity, :endurance, :intelligence, :luck])
     end
+
