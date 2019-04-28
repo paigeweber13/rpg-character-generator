@@ -1,15 +1,8 @@
 require 'rails_helper.rb'
 
-feature 'User adds a character' do
-    scenario 'User successfully navigates to the new character page from the homepage' do
-        visit root_path
-        expect(page).to have_content('Welcome')
-        
-        click_link('Start')
-        expect(page).to have_content('Character Creation')
-    end
-    
-    scenario 'User successfully creates a Character' do
+feature 'User deletes a comment' do
+    scenario 'User successfully deletes a comment from a character' do
+        # Create character to store in test database
         visit new_character_path
         expect(page).to have_content('Character Creation')
         
@@ -27,14 +20,18 @@ feature 'User adds a character' do
         fill_in 'Luck', with: 10
         
         click_button 'Create Character'
-        
-        # Character view contains correct info on character
-        expect(page).to have_content('Name: Capybara test')
-        
         expect(page).to have_content('Character:')
-        expect(page).to have_content('race: human')
-        
         expect(page).to have_content('Stats:')
-        expect(page).to have_content('vitality: 10')
+        
+        # Add comment to character from Show view
+        expect(page).to have_content('Comments')
+        fill_in 'Commenter', with: 'Test Author'
+        fill_in 'Body', with: 'This is a test comment'
+        click_button 'Create Comment'
+        expect(page).to have_content('Commenter: Test Author')
+        expect(page).to have_content('Comment: This is a test comment')
+        
+        # Delete the added comment
+        expect{ click_link('Destroy Comment') }.to change(Comment, :count).by(-1)
     end
 end
